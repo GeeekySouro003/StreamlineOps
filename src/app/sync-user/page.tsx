@@ -1,8 +1,8 @@
-import { db } from '@/server/db';
+import {PrismaClient} from "@prisma/client"
 import { auth, clerkClient } from '@clerk/nextjs/server'
 import { notFound, redirect } from 'next/navigation';
 import React from 'react'
-
+export const db=new PrismaClient();
 const SyncUser = async() => {
  const {userId} = await auth()
  if(!userId) {
