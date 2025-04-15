@@ -2,7 +2,7 @@
 
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar"
 import { cn } from "@/lib/utils"
-import { Bot, CreditCard, LayoutDashboard, Presentation } from "lucide-react"
+import { Bot, CreditCard, LayoutDashboard, MessageSquareMore, Presentation } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -17,7 +17,7 @@ const items = [
     {
     title:"Q&A",
     url:"/qa",
-    icon:Bot,
+    icon:MessageSquareMore,
     },
     {
         title:"Meetings",
