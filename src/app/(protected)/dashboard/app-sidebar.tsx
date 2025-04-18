@@ -145,3 +145,4 @@ export function AppSideBar() {
     </Sidebar>
   )
 }
+//Issue in tailwind theme change
