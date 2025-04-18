@@ -31,6 +31,21 @@ const items = [
     }
 
 ]
+
+const projects = [
+    {
+        name:'Project 1',
+    },
+
+    {
+        name:'Project 2',
+    },
+
+    {
+        name:'Project 3',
+    },
+
+]
 export function AppSideBar() {
     const pathname=usePathname();
     return (
@@ -63,6 +78,35 @@ export function AppSideBar() {
                         })}
                         </SidebarMenu>
                         
+                    </SidebarGroupContent>
+                </SidebarGroup>
+                <SidebarGroup>
+                    <SidebarGroupLabel>
+                        Your Projects
+                    </SidebarGroupLabel>
+                    <SidebarGroupContent>
+                        <SidebarMenu>
+                            {projects.map(project => {
+                                return(
+                                    <SidebarMenuItem key={project.name}>
+                                        <SidebarMenuButton asChild>
+                                            <div>
+                                                <div className={cn(
+                                                    'rounded-sm border size-6 flex items-center justify-center text-sm bg-white text-primary',
+                                                    {
+                                                        'bg-blue-600 text-white': true
+                                                    }
+                                                )}>
+                                                    {project.name[0]}
+
+                                                </div>
+                                                <span>{project.name}</span>
+                                            </div>
+                                        </SidebarMenuButton>
+                                    </SidebarMenuItem>
+                                )
+                            })}
+                        </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>
             </SidebarContent>
