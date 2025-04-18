@@ -1,8 +1,9 @@
 "use client"
 
+import { Button } from "@/components/ui/button"
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar"
 import { cn } from "@/lib/utils"
-import { Bot, CreditCard, LayoutDashboard, MessageSquareMore, Presentation } from "lucide-react"
+import { Bot, CreditCard, LayoutDashboard, MessageSquareMore, Plus, Presentation } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -106,6 +107,16 @@ export function AppSideBar() {
                                     </SidebarMenuItem>
                                 )
                             })}
+                            <div className="h-2"></div>
+                            <SidebarMenuItem>
+                                <Link href='/create'>
+                                <Button className="w-fit" variant={'outline'} size="lg">
+                                    <Plus/>
+                                Setup Project
+                            </Button>  
+                                </Link>
+                            </SidebarMenuItem>
+                            
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>
