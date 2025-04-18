@@ -11,7 +11,8 @@ import {
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem
+  SidebarMenuItem,
+  useSidebar
 } from "@/components/ui/sidebar"
 import { cn } from "@/lib/utils"
 import {
@@ -57,6 +58,7 @@ const projects = [
 export function AppSideBar() {
   const pathname = usePathname()
   const [collapsed, setCollapsed] = useState(false)
+  const{open}=useSidebar();
 
   // Toggle with Cmd + B or Ctrl + B
   useEffect(() => {
@@ -75,8 +77,12 @@ export function AppSideBar() {
     <Sidebar collapsed={collapsed} collapsible="icon" variant="floating">
       <SidebarHeader>
         <div className="flex items-center gap-2">
-          <Image src="/logo.png" alt="Logo" width={190} height={190} />
-          {/* <h1 className="text-xl font-bold text-primary/80">StreamlineOps</h1> */}
+          <Image src="/logo.png" alt="Logo" width={55} height={55} />
+          {open&&(
+            <h1 className="text-xl font-bold text-primary/80">StreamlineOps</h1> 
+          )
+          }
+           
         </div>
       </SidebarHeader>
 
