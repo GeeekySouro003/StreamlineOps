@@ -1,4 +1,5 @@
 "use client"
+import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import React from 'react'
 import { useForm } from 'react-hook-form'
@@ -13,7 +14,7 @@ const CreatePage = () => {
 const {register,handleSubmit,reset}=useForm<FormInput>();
 
 function onSubmit(data:FormInput) {
-    window.alert(data);
+    window.alert(JSON.stringify(data,null,2));
     return true
 }
   return (
@@ -22,9 +23,9 @@ function onSubmit(data:FormInput) {
     <div>
         <div>
             <h1 className='font-semibold text-2xl'>
-                Link Your Github Repository
+                Link Your Github Repository🔗
             </h1>
-            <p className='text-sm text-muted-foreground'>
+            <p className='text-sm text-accent-foreground'>
                 Enter the URL of your repository
             </p>
         </div>
@@ -32,10 +33,26 @@ function onSubmit(data:FormInput) {
         <div>
         <form onSubmit={handleSubmit(onSubmit)}>
             <Input 
-            {...register('repoUrl', {required:true})}
+            {...register('projectName', {required:true})}
             placeholder='Project Name'
             required
             />
+        <div className='h-2'></div>
+        <Input 
+            {...register('repoUrl', {required:true})}
+            placeholder='Github URL'
+            type='url'
+            required
+            />
+        <div className='h-2'></div>
+        <Input 
+            {...register('githubToken')}
+            placeholder='Github Token (Optional)'
+            />  
+            <div className='h-4'></div>
+            <Button type="Submit" >
+                Create Project
+            </Button>
 </form> 
         </div>
     </div>
