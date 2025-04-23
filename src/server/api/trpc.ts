@@ -81,7 +81,7 @@ export const createTRPCRouter = t.router;
  * network latency that would occur in production but not in local development.
  */
 
-const isAuthenticated=t.middleware(async{next,ctx}) => {
+const isAuthenticated=t.middleware(async({next,ctx}) => {
   const user=await auth()
   if(!user){
     throw new TRPCError({
@@ -95,7 +95,7 @@ const isAuthenticated=t.middleware(async{next,ctx}) => {
       user
     }
   })
-}
+})
 const timingMiddleware = t.middleware(async ({ next, path }) => {
   const start = Date.now();
 
