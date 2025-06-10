@@ -34,11 +34,14 @@ function onSubmit(data:FormInput) {
     return true
 }
   return (
-    
+
     <div className='flex items-center gap-12 h-ful justify-center'>
         <img src="/undraw_github.svg" className='h-56 w-auto my-50'/>
     <div>
         <div>
+
+
+            
             <h1 className='font-semibold text-2xl'>
                 Link Your Github Repository🔗
             </h1>
