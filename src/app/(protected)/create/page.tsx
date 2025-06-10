@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input'
 import { api } from '@/trpc/react'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 
 
 type FormInput={
@@ -17,9 +18,23 @@ const createProject = api.project.createProject.useMutation();
 
 function onSubmit(data:FormInput) {
     window.alert(JSON.stringify(data,null,2));
+    createProject.mutate({
+        githubUrl:data.repoUrl,
+        name:data.projectName,
+        githubToken:data.githubToken
+    }, {
+        onSuccess:()=>{
+            toast.success("Project created successfully")
+            reset()
+        },
+        onError:()=>{
+            toast.error("Failed to create project")
+        }
+    })
     return true
 }
   return (
+    
     <div className='flex items-center gap-12 h-ful justify-center'>
         <img src="/undraw_github.svg" className='h-56 w-auto my-50'/>
     <div>
